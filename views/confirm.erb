@@ -2,6 +2,7 @@ Are you sure you want?
 
 <% choice.each do |value|%>
 <form method = "post" action = "/confirm">
-    <p> <input type = "checkbox" value = "<%= value %>" name = 'choice'> <%= value %> </p>
+    <p> <input type = "checkbox" value = <%= value %> name = 'choice[]'> <%= value %> </p>
 <% end %>
 <center> <input type = 'submit'> <center>
+</form>
