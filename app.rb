@@ -5,22 +5,22 @@ get '/' do
 end
 
 post '/choosing' do
-  choice = params[:choice].to_s
+  choice = params[:choice].join(", ")
   redirect '/confirm?choice=' + choice
 end
 
 get '/confirm' do
-  choice = params[:choice].split
+  choice = params[:choice].split(", ")
   erb :confirm, :locals => {:choice => choice}
 end
 
 post '/confirm' do
-  choice = params[:choice].to_s
+  choice = params[:choice].join(", ")
   redirect '/results?choice=' + choice
 end
 
 get '/results' do
-  choice = params[:choice].split
+  choice = params[:choice].split(", ")
   erb :results, :locals => {:choice => choice}
 end
 
